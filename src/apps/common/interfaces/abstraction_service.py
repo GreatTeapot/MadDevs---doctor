@@ -1,6 +1,5 @@
 import abc
 from typing import Any, Optional, TypeVar
-from uuid import UUID
 
 from common.models.base import Base
 from common.schemas.filters.mixins import BaseFilterSchema
@@ -11,7 +10,7 @@ TModel = TypeVar("TModel", bound=Base)
 TDict = TypeVar("TDict", bound=dict)
 TFilter = TypeVar("TFilter", bound=BaseFilterSchema)
 TUnitOfWork = TypeVar("TUnitOfWork", bound=BaseUnitOfWork)
-TID = TypeVar("TID", int, UUID)
+TID = TypeVar("TID", bound=int)
 
 
 class IService(abc.ABC):

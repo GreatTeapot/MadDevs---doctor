@@ -2,9 +2,8 @@ from datetime import datetime
 from typing import Optional, TypeAlias, TypeVar, Union
 from uuid import UUID
 
-from sqlalchemy import ScalarResult, delete, insert, select, update
+from sqlalchemy import delete, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import joinedload
 
 from common.interfaces.abstraction_repository import IRepository
 from common.models.base import Base
