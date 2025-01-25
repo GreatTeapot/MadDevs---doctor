@@ -1,13 +1,10 @@
 from datetime import datetime
-from typing import TypeVar
 
 from pydantic import EmailStr, Field, field_validator
 from pydantic.json_schema import SkipJsonSchema as HiddenField
 
 from common.enums.role import UserRoleEnum
 from common.schemas.base import BaseModel
-
-TSchema = TypeVar("TSchema", bound=BaseModel)
 
 
 class UserResponseSchema(BaseModel):

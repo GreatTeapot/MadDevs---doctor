@@ -1,6 +1,5 @@
 from datetime import datetime
 from typing import Optional, TypeAlias, TypeVar, Union
-from uuid import UUID
 
 from sqlalchemy import delete, insert, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -14,8 +13,8 @@ TModel = TypeVar("TModel", bound=Base)
 TSchema = TypeVar("TSchema", bound=BaseModel)
 TFilter = TypeVar("TFilter", bound=BaseFilterSchema)
 
-EditData: TypeAlias = dict[str, Union[UUID, str, bool, datetime, int, None]]
-TID = TypeVar("TID", int, UUID)
+EditData: TypeAlias = dict[str, Union[int, str, bool, datetime, int, None]]
+TID = TypeVar("TID", int, int)
 
 
 class BaseRepository(IRepository):
@@ -65,7 +64,7 @@ class BaseRepository(IRepository):
         res = await self.session.execute(stmt)
         return bool(res.scalar_one_or_none())
 
-    async def edit(self, data: EditData, data_id: TID) -> Optional[UUID]:
+    async def edit(self, data: EditData, data_id: TID) -> Optional[int]:
         """Base repository method for editing data."""
         stmt = (
             update(self.model)

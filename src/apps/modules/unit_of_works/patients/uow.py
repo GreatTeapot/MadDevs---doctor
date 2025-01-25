@@ -1,7 +1,7 @@
 from typing import Self
 
 from common.unit_of_works.base import BaseUnitOfWork
-from modules.repositories.patients.patient import  PatientRepository
+from modules.repositories.patients.repository import  PatientRepository
 
 
 class PatientUOW(BaseUnitOfWork):

@@ -4,7 +4,7 @@ from typing import Optional, TypeAlias, Union
 from uuid import UUID
 
 import sqlalchemy as sa
-from modules.exceptions.users import user as exc
+from modules.exceptions.users import exception as exc
 
 from common.enums.role import UserRoleEnum
 from common.repositories.mixins import PaginatedPageRepository

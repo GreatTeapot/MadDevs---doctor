@@ -1,5 +1,4 @@
 from datetime import datetime
-from math import ceil
 from typing import Optional, TypeVar
 
 from pydantic import Field

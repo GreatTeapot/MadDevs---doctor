@@ -1,5 +1,5 @@
 from common.schemas.responses import mixins as response
-from modules.schemas.users.user import UserResponseSchema
+from modules.schemas.users.user_schemas import UserResponseSchema
 
 REGISTRATION_RESPONSES = {
     200: {"model": response.SuccessIdResponseSchema},

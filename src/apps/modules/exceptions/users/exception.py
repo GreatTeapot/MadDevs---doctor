@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from modules.const.users import exceptions as exc
+from modules.const.users import const as exc
 
 
 class UserNotFoundException(HTTPException):
@@ -77,6 +77,16 @@ class AuthBadRequestException(HTTPException):
     def __init__(self, detail: str) -> None:
         self.status_code = 400
         self.detail = detail
+        self.headers = {"WWW-Authenticate": "Bearer"}
+        super().__init__(
+            status_code=self.status_code, detail=self.detail, headers=self.headers
+        )
+
+class UserRolesForbiddenException(HTTPException):
+    """Exception raised for forbidden roles."""
+    def __init__(self, ) -> None:
+        self.status_code = 403
+        self.detail = exc.ROLES_FORBIDDEN
         self.headers = {"WWW-Authenticate": "Bearer"}
         super().__init__(
             status_code=self.status_code, detail=self.detail, headers=self.headers

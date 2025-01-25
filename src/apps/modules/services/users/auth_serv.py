@@ -3,10 +3,10 @@ import datetime as dt
 from jwt import ExpiredSignatureError, DecodeError, MissingRequiredClaimError
 
 from core.security import Security
-from modules.const.users import exceptions as resp_exc
-from modules.exceptions.users import user as error
-from modules.services.users.user import UserService
-from modules.unit_of_works.users.auth import AuthUOW
+from modules.const.users import const as resp_exc
+from modules.exceptions.users import exception as error
+from modules.services.users.user_serv import UserService
+from modules.unit_of_works.users.auth_uow import AuthUOW
 
 
 class AuthService(UserService):

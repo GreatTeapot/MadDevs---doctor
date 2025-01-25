@@ -1,5 +1,5 @@
 from common.schemas.responses import mixins as response
-from modules.const.users import exceptions as exc
+from modules.const.users import const as exc
 
 LOGIN_RESPONSES = {
     400: {

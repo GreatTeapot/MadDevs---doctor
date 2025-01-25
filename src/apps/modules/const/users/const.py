@@ -7,6 +7,7 @@ CREDENTIALS_CONFLICT = "Failed to verify credentials"
 
 # -------------------------- DATA RESPONSES --------------------------
 DATA_NOT_FOUND_MESSAGE = "Data not found"
+BAD_REQUEST = "Bad Request"
 
 # -------------------------- ERROR RESPONSES --------------------------
 ADMIN_ROLE_REQUIRED_MESSAGE = "The action requires the 'admin' role."
@@ -30,4 +31,5 @@ TOKEN_REQUIRED_FIELD_FORBIDDEN = (
     "Your token is missing a required field. Please contact the administrator."
 )
 ROLES_FORBIDDEN = "This action requires one of the roles: ..."
+
 

@@ -1,7 +1,7 @@
 from typing import Self
 
 from common.unit_of_works.base import BaseUnitOfWork
-from modules.repositories.users.user import UserRepository
+from modules.repositories.users.user_rep import UserRepository
 
 
 class UserUOW(BaseUnitOfWork):

@@ -5,10 +5,10 @@ from fastapi.security import OAuth2PasswordBearer
 from jwt import DecodeError, ExpiredSignatureError, MissingRequiredClaimError
 from core.config import settings
 from core.security import Security
-from modules.const.users import exceptions as exc
-from modules.exceptions.users import user as error
-from modules.schemas.users.auth import UserInfoSchema
-from modules.unit_of_works.users.user import UserUOW
+from modules.const.users import const as exc
+from modules.exceptions.users import exception as error
+from modules.schemas.users.auth_schemas import UserInfoSchema
+from modules.unit_of_works.users.user_uow import UserUOW
 
 oauth2_scheme = OAuth2PasswordBearer(
     tokenUrl=str(settings.auth.token_url), scheme_name="JWT"

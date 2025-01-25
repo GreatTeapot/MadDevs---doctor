@@ -8,9 +8,9 @@ from common.schemas.pages.mixins import PageViewSchema
 from common.services.mixins import PaginatedPageService
 from core.security import Security
 from models.user import User
-from modules.exceptions.users.user import UserNotFoundException
-from modules.schemas.users.user import RegisterSchema, CurrentUserSchema
-from modules.unit_of_works.users.user import UserUOW
+from modules.exceptions.users.exception import UserNotFoundException
+from modules.schemas.users.user_schemas import RegisterSchema, CurrentUserSchema
+from modules.unit_of_works.users.user_uow import UserUOW
 
 RegisterData: TypeAlias = dict[
     str, Union[bytes, str, datetime, bool, UserRoleEnum, NoneType, int]
