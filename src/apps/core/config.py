@@ -1,6 +1,5 @@
 
 import os
-
 from functools import lru_cache
 from pathlib import Path
 from typing import Optional, Self
@@ -48,6 +47,9 @@ class AuthSettings(CommonSettings):
     refresh_token_expire_minutes: int = Field(
         default=10000, alias="REFRESH_TOKEN_EXPIRE_MINUTES"
     )
+    doctor_username: str = Field(default="doctor", alias="DOCTOR_USERNAME")
+    doctor_email: str = Field(default="doctor@example.com", alias="DOCTOR_EMAIL")
+    doctor_password: str = Field(default="securepassword", alias="DOCTOR_PASSWORD")
 
 
 class DatabaseSettings(CommonSettings):
@@ -59,8 +61,13 @@ class DatabaseSettings(CommonSettings):
     pg_password: str = Field(default="postgres", alias="PG_PASSWORD")
     pg_database: str = Field(default="postgres", alias="PG_DATABASE",)
     pg_port: int = Field(default=5432, alias="PG_PORT")
+
+    pg_test_database: str = Field(default="doctor_test", alias="PG_TEST_DATABASE",)
+    pytest_debug: bool = Field(default=False, alias="PYTEST_DEBUG")
+
     async_database_url: Optional[PostgresDsn] = Field(default=None)
     sync_database_url: Optional[PostgresDsn] = Field(default=None)
+    async_test_database_url: Optional[PostgresDsn] = Field(default=None)
 
     @staticmethod
     def __build_db_dsn(
@@ -86,8 +93,23 @@ class DatabaseSettings(CommonSettings):
 
     @model_validator(mode="after")
     def validate_async_database_url(self) -> Self:
+        db_name = self.pg_test_database if self.pytest_debug else self.pg_database
+
         """Build asynchronous PostgreSQL DSN."""
         self.async_database_url = self.__build_db_dsn(
+            username=self.pg_user,
+            password=self.pg_password,
+            host=self.pg_host,
+            port=self.pg_port,
+            database=db_name,
+            async_dsn=True,
+        )
+
+        return self
+    @model_validator(mode="after")
+    def validate_sync_database_url(self) -> Self:
+        """Build synchronous PostgreSQL DSN."""
+        self.sync_database_url = self.__build_db_dsn(
             username=self.pg_user,
             password=self.pg_password,
             host=self.pg_host,
@@ -98,18 +120,17 @@ class DatabaseSettings(CommonSettings):
         return self
 
     @model_validator(mode="after")
-    def validate_sync_database_url(self) -> Self:
-        """Build synchronous PostgreSQL DSN."""
-        self.sync_database_url = self.__build_db_dsn(
+    def validate_async_test_database_url(self) -> Self:
+        """Build asynchronous PostgreSQL DSN for tests"""
+        self.async_test_database_url = self.__build_db_dsn(
             username=self.pg_user,
             password=self.pg_password,
             host=self.pg_host,
             port=self.pg_port,
-            database=self.pg_database,
+            database=self.pg_test_database,
+            async_dsn=True,
         )
         return self
-
-
 
 class Settings(CommonSettings):
     """Environment settings."""
@@ -122,7 +143,7 @@ class Settings(CommonSettings):
     client_secret: str = Field(default="fastapi_secret", alias="CLIENT_SECRET")
 
     port: int = Field(default=8000, alias="PORT")
-    host: str = Field(alias="HOST")
+    host: str = Field(default="localhost",alias="HOST")
     default_page_size: int = Field(default=30, alias="PAGE_SIZE")
     max_page_size: int = Field(default=30, alias="MAX_PAGE_SIZE")
     openapi_url: str = Field(default="/docs", alias="OPENAPI_URL")
@@ -138,3 +159,4 @@ def get_settings() -> Settings:
 
 settings = get_settings()
 
+print(f"Loaded HOST: {os.getenv('HOST')}")

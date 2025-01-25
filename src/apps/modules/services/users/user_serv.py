@@ -1,6 +1,10 @@
 from datetime import datetime
+from numbers import Integral
 from types import NoneType
 from typing import TypeAlias, Union
+
+from pydantic import EmailStr
+from sqlalchemy.exc import IntegrityError
 
 from common.enums.role import UserRoleEnum
 from common.schemas.filters.mixins import DataRangeBaseFilterSchema
@@ -76,3 +80,18 @@ class UserService(PaginatedPageService):
                 count_records, CurrentUserSchema, list_records, filters
             )
             return response
+
+    @classmethod
+    async def create_doctor_user(cls, uow: UserUOW, username: str, email: EmailStr, password: str) -> bool:
+        """Create a doctor user if they do not already exist."""
+        schema = RegisterSchema(
+            username=username,
+            email=email,
+            password_hash=password,
+            role=UserRoleEnum.DOCTOR
+        )
+        try:
+            result = await cls.create(uow, schema)
+            return bool(result)
+        except:
+            print(f"[WARNING] Integrity error while creating user: . Skipping creation.")

@@ -42,7 +42,7 @@ class CurrentUserDep:
         if uow is None:
             uow = UserUOW()
         async with uow:
-            data_user = await uow.repo.get(login)
+            data_user = await uow.repo.get(int(login))
 
         if data_user is None:
             raise error.AuthUnauthorizedException()

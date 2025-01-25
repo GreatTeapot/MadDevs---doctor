@@ -8,7 +8,7 @@ from modules.responses.patients import response
 patient = APIRouter(prefix="/api/v1/patient", tags=["Patient"])
 
 
-@patient.post("/",
+@patient.post("",
               summary="Create a new patient",
               responses=response.PATIENT_CREATE_RESPONSES)
 async def create_patient(uow: PatientUOWDep,
@@ -20,7 +20,7 @@ async def create_patient(uow: PatientUOWDep,
     return patient_data
 
 
-@patient.get("/",
+@patient.get("",
              summary="Get all patients",
              responses=response.PATIENT_GET_RESPONSES)
 async def get_all_patients(uow: PatientUOWDep,

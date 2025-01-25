@@ -10,16 +10,16 @@ from api.v1.routers import routers
 from core.config import settings
 from core.http_connector import ExternalServiceConnector
 from core.logger import LoggerConfig
+from modules.services.users.user_serv import UserService
+from modules.unit_of_works.users.user_uow import UserUOW
 
 
-# region ------------------------------ initialize ----------------------------------
+# # region ------------------------------ initialize ----------------------------------
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator:  # noqa
     ExternalServiceConnector.start_client()
     yield
     await ExternalServiceConnector.close_client()
-
-
 # endregion -------------------------------------------------------------------------
 
 
@@ -77,7 +77,6 @@ app.add_middleware(
 for router in routers:
     app.include_router(router)
 #endregion -------------------------------------------------------------------------
-
 if __name__ == "__main__":
     # in production use gunicorn
     uvicorn.run(

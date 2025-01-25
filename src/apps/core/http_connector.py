@@ -7,13 +7,13 @@ from core.config import settings
 
 
 class ExternalServiceConnector:
-    """Class for initializing/closing and retrieving the client."""
+    """Класс инициализации/закрытия и получения клиента."""
 
     client: Optional[AsyncClient] = None
 
     @classmethod
     def start_client(cls) -> None:
-        """Initialize the client at application startup."""
+        """Инициализация клиента при старте приложения."""
         transport = AsyncHTTPTransport(
             limits=Limits(
                 max_connections=settings.client.max_connections,
@@ -27,15 +27,15 @@ class ExternalServiceConnector:
 
     @classmethod
     async def close_client(cls) -> None:
-        """Close the client at application shutdown."""
+        """Закрытие клиента при остановке приложения."""
         await cls.client.aclose()
         cls.client = None
 
     @classmethod
     def get_client(cls) -> AsyncClient:
-        """Retrieve the current client."""
+        """Получение текущего клиента."""
         if cls.client is None:
             raise RuntimeError(
-                "HTTP client is not initialized. Call start_client() first."
+                "HTTP-клиент не инициализирован. Сначала вызовите start_client."
             )
         return cls.client

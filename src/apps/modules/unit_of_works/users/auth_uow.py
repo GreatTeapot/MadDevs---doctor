@@ -7,7 +7,6 @@ from modules.repositories.users.auth_rep import AuthRepository
 class AuthUOW(BaseUnitOfWork):
     """Class for handling authentication transactions."""
 
-    repo = AuthRepository
 
     async def __aenter__(self) -> Self:
         """Enter the context manager."""

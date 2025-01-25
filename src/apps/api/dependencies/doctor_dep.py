@@ -15,7 +15,7 @@ class DoctorOrAdminUserDep(CurrentUserDep):
     async def get_user_with_roles(
         cls,
         token: str = Depends(oauth2_scheme),
-    ) -> UserInfoSchema:
+    ) :
         """Retrieve the current doctor or admin user."""
         user = await cls.get_current_user(token=token)
         if user.role not in cls.allowed_roles:

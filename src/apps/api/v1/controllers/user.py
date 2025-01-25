@@ -1,11 +1,7 @@
-from typing import Union
-
 from fastapi import APIRouter
 from starlette.responses import Response
 
 from api.dependencies.dependencies import UserServiceDep, UserUOWDep, UserDep
-from core.constants import REFRESH
-from core.security import Security
 from modules.responses.users import user_res as responses
 from modules.schemas.users.auth_schemas import TokenInfoSchema
 from modules.schemas.users.user_schemas import (
@@ -24,16 +20,10 @@ async def create_user(
     service: UserServiceDep,
     model: RegisterSchema,
     response: Response,
-) -> TokenInfoSchema:
+) -> int:
     """Controller for registering a new user"""
     user_data = await service.create(uow, model)
-    access_token = Security.create_access_token(user_data)
-    refresh_token = Security.create_refresh_token(user_data)
-    response.set_cookie(key=REFRESH,
-                        value=refresh_token,
-                        httponly=True,
-                        secure=False)
-    return TokenInfoSchema(access_token=access_token,)
+    return user_data
 
 
 
