@@ -70,6 +70,7 @@ class BaseUnitOfWork(IUnitOfWork):
                     indent=4,
                 )
             )
+            logging.debug("Closing session...")
             await self.close()
             raise HTTPException(status_code=500, detail=detail_massage)
 

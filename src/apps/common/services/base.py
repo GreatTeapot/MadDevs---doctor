@@ -1,5 +1,4 @@
 from typing import Optional, TypeVar
-from uuid import UUID
 
 from common.interfaces.abstraction_service import IService
 from common.models.base import Base
@@ -11,7 +10,7 @@ TModel = TypeVar("TModel", bound=Base)
 TDict = TypeVar("TDict", bound=dict)
 TFilter = TypeVar("TFilter", bound=BaseFilterSchema)
 TUnitOfWork = TypeVar("TUnitOfWork", bound=BaseUnitOfWork)
-TID = TypeVar("TID", int, UUID)
+TID = TypeVar("TID" , bound=int)
 
 
 class BaseService(IService):

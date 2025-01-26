@@ -1,18 +1,13 @@
-
-import uuid
-
-
-
 from pydantic import Field
 
-from modules.users.const import exceptions as exc
 from common.schemas.base import BaseModel
+from modules.const.users import const as exc
 
 
 class SuccessIdResponseSchema(BaseModel):
     """Response schema for successful user registration."""
 
-    detail: str = Field(default=uuid.uuid4())
+    detail: str = Field(default=int)
 
 
 class SuccessBoolResponseSchema(BaseModel):
@@ -66,3 +61,12 @@ class UserBadRequestResponseSchema(BaseModel):
 
     detail: str = Field(default=exc.USER_REMOVED_REQUEST)
 
+
+class UserRolesForbidden(BaseModel):
+    """Response schema for user roles forbidden"""
+    detail: str = Field(default=exc.ROLES_FORBIDDEN)
+
+
+class BAD_REQUEST(BaseModel):
+    """Response schema for unprocessable entity."""
+    detail: str = Field(default=exc.BAD_REQUEST)

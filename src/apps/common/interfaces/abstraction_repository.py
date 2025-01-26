@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 from datetime import datetime
 from types import NoneType
 from typing import Optional, TypeAlias, TypeVar, Union
-from uuid import UUID
 
 from sqlalchemy import ScalarResult
 
@@ -15,10 +14,10 @@ from common.schemas.filters.mixins import BaseFilterSchema
 TModel = TypeVar("TModel", bound=Base)
 TSchema = TypeVar("TSchema", bound=BaseModel)
 TFilter = TypeVar("TFilter", bound=BaseFilterSchema)
-TID = TypeVar("TID", int, UUID)
+TID = TypeVar("TID", int, int)
 
 RegisterData: TypeAlias = dict[str, Union[str, datetime, bool, UserRoleEnum, NoneType]]
-EditData: TypeAlias = dict[str, Union[UUID, str, bool, datetime, int, None]]
+EditData: TypeAlias = dict[str, Union[int, str, bool, datetime, int, None]]
 
 
 class IRepository(ABC):
