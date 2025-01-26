@@ -12,5 +12,5 @@ class Patient(Base, CreatedUpdatedMixin):
 
     id: Mapped[Optional[int]] = mapped_column(sa.Integer, primary_key=True, index=True)
     date_of_birth: Mapped[Optional[date]] = mapped_column(nullable=False)
-    diagnoses: Mapped[Optional[list[str]]] = mapped_column(sa.ARRAY(sa.String), nullable=True)
+    diagnoses: Mapped[Optional[list[str]]] = mapped_column(sa.String, nullable=True)
     deleted: Mapped[bool] = mapped_column(sa.Boolean, default=False, nullable=False)

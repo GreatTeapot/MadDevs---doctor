@@ -67,7 +67,6 @@ class DatabaseSettings(CommonSettings):
 
     async_database_url: Optional[PostgresDsn] = Field(default=None)
     sync_database_url: Optional[PostgresDsn] = Field(default=None)
-    async_test_database_url: Optional[PostgresDsn] = Field(default=None)
 
     @staticmethod
     def __build_db_dsn(
@@ -119,18 +118,7 @@ class DatabaseSettings(CommonSettings):
         )
         return self
 
-    @model_validator(mode="after")
-    def validate_async_test_database_url(self) -> Self:
-        """Build asynchronous PostgreSQL DSN for tests"""
-        self.async_test_database_url = self.__build_db_dsn(
-            username=self.pg_user,
-            password=self.pg_password,
-            host=self.pg_host,
-            port=self.pg_port,
-            database=self.pg_test_database,
-            async_dsn=True,
-        )
-        return self
+
 
 class Settings(CommonSettings):
     """Environment settings."""

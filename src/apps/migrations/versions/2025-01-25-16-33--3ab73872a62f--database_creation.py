@@ -23,7 +23,7 @@ def upgrade() -> None:
     op.create_table('patient',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('date_of_birth', sa.Date(), nullable=False),
-    sa.Column('diagnoses', sa.ARRAY(sa.String()), nullable=True),
+    sa.Column('diagnoses', sa.String(), nullable=True),
     sa.Column('deleted', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),

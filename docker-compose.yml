@@ -1,0 +1,38 @@
+name: mad_devs
+networks:
+  dev:
+
+
+services:
+  # region --------------- APPS -------------
+
+
+  user1.api:
+     container_name: user1.api
+     build:
+       context: ./src/apps
+     depends_on:
+       - postgres1.db
+     command: [ "sh", "-c", "alembic upgrade head && python3 main.py" ]
+     restart: unless-stopped
+     env_file:
+      - .env
+     networks:
+       - dev
+  # end --------------------------------------
+
+  # end --------------------------------------
+
+  # region --------------- DB ----------------
+
+  postgres1.db:
+    image: postgres:17.2-alpine
+    container_name: postgres1.db
+    env_file:
+      - .env
+    volumes:
+      - .postgres:/var/lib/postgres/data
+    restart: unless-stopped
+    networks:
+      - dev
+# end ---------------------------------------

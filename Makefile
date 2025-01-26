@@ -1,4 +1,4 @@
-.PHONY: run up down build stop
+.PHONY: run up down build stop, migrate
 
 # Run the application
 
@@ -18,3 +18,7 @@ build:
 
 stop:
 	docker compose stop
+
+
+migrate:
+	cd src/apps && alembic revision --autogenerate -m "Database creation"

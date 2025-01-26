@@ -7,7 +7,7 @@ from common.services.mixins import PaginatedPageService
 from models.patient import Patient
 from modules.exceptions.patients.exception import PatientNotFoundException
 from modules.schemas.patients.schemas import CreatePatientSchema, PatientBaseSchema, PatientUpdateSchema
-from modules.unit_of_works.patients.uow import PatientUOW
+from modules.unit_of_works.patients.patient_uow import PatientUOW
 
 EditData: TypeAlias = dict[str, Union[str, bool, datetime, int, None]]
 

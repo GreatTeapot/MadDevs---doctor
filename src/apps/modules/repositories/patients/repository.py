@@ -1,7 +1,6 @@
 from datetime import datetime
 from types import NoneType
 from typing import Optional, TypeAlias, Union
-from uuid import UUID
 
 import sqlalchemy as sa
 
@@ -10,8 +9,8 @@ from common.repositories.mixins import PaginatedPageRepository
 from common.schemas.filters.mixins import DataRangeBaseFilterSchema
 from models.patient import Patient
 
-RegisterData: TypeAlias = dict[str, Union[str, datetime, bool, UserRoleEnum, NoneType, UUID]]
-EditData: TypeAlias = dict[str, Union[UUID, str, bool, datetime, int, None, UserRoleEnum]]
+RegisterData: TypeAlias = dict[str, Union[str, datetime, bool, UserRoleEnum, NoneType, int]]
+EditData: TypeAlias = dict[str, Union[int, str, bool, datetime, int, None, UserRoleEnum]]
 
 
 class PatientRepository(PaginatedPageRepository):

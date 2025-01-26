@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from os.path import dirname, abspath
 
 from alembic import context
+from sqlalchemy import engine_from_config, pool
 
 from common.models.base import Base
 from core.database import engine_sync
@@ -62,9 +63,9 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    connectable = context.config.attributes.get("connection", None)  # for pytest-alembic
+    connectable = context.config.attributes.get("connection", None)  # для pytest-alembic
 
-    if connectable is None:  # without pytest-alembic
+    if connectable is None:  # без pytest-alembic
         connectable = engine_sync
 
     with connectable.connect() as connection:

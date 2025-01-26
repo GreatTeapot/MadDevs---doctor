@@ -10,7 +10,7 @@ from modules.schemas.users.auth_schemas import EmptyUserSchema
 from modules.services.patients.service import PatientService
 from modules.services.users.auth_serv import AuthService
 from modules.services.users.user_serv import UserService
-from modules.unit_of_works.patients.uow import PatientUOW
+from modules.unit_of_works.patients.patient_uow import PatientUOW
 from modules.unit_of_works.users.auth_uow import AuthUOW
 from modules.unit_of_works.users.user_uow import UserUOW
 
