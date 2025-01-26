@@ -114,7 +114,6 @@ class DatabaseSettings(CommonSettings):
             host=self.pg_host,
             port=self.pg_port,
             database=self.pg_database,
-            async_dsn=True,
         )
         return self
 
@@ -147,4 +146,3 @@ def get_settings() -> Settings:
 
 settings = get_settings()
 
-print(f"Loaded HOST: {os.getenv('HOST')}")

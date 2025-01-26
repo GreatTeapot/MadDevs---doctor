@@ -5,13 +5,13 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from common.enums.role import UserRoleEnum
 from common.models.base import Base
-from common.models.mixins import CreatedUpdatedMixin
+from common.models.mixins import CreatedUpdatedMixin, IDMixin
 
 
-class User(Base, CreatedUpdatedMixin):
+class User(Base, CreatedUpdatedMixin, IDMixin
+):
     """User model"""
 
-    id: Mapped[Optional[int]] = mapped_column(sa.Integer, primary_key=True, index=True)
     username: Mapped[Optional[str]] = mapped_column(sa.String(length=100))
     email: Mapped[Optional[str]] = mapped_column(
         sa.String(length=250), index=True, unique=True

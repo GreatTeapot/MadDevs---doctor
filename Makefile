@@ -1,4 +1,4 @@
-.PHONY: run up down build stop, migrate
+.PHONY: run up down build stop, migrate, test
 
 # Run the application
 
@@ -14,7 +14,7 @@ down:
 
 
 build:
-	docker compose up --build
+	docker compose up --build -d
 
 stop:
 	docker compose stop
@@ -22,3 +22,6 @@ stop:
 
 migrate:
 	cd src/apps && alembic revision --autogenerate -m "Database creation"
+
+test:
+	PYTHONPATH=src/apps pytest -v

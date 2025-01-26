@@ -18,6 +18,11 @@ from modules.unit_of_works.users.user_uow import UserUOW
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator:  # noqa
     ExternalServiceConnector.start_client()
+
+    async with UserUOW() as uow:
+        await UserService.create_doctor_user(uow, settings.auth.doctor_username, settings.auth.doctor_email,
+                                             settings.auth.doctor_password)
+
     yield
     await ExternalServiceConnector.close_client()
 # endregion -------------------------------------------------------------------------

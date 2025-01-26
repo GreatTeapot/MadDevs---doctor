@@ -162,7 +162,7 @@ cython_debug/
 .idea/
 
 # jwt files
-/certs/jwt-private.pem
+#/certs/jwt-private.pem
 
 #database
 .postgres

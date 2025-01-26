@@ -1964,3 +1964,405 @@
     "process": "SpawnProcess-1",
     "thread": "MainThread"
 }
+{
+    "timestamp": "2025-01-26 20:00:58,988",
+    "level": "ERROR",
+    "message": {
+        "exception": "EmailAlreadyExistsException",
+        "status_code": 409,
+        "detail": "This email already exists."
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 40,
+    "func": "__aexit__",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:30,175",
+    "level": "ERROR",
+    "message": {
+        "exception": "EmailAlreadyExistsException",
+        "status_code": 409,
+        "detail": "This email already exists."
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 40,
+    "func": "__aexit__",
+    "process": "SpawnProcess-2",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:30,175",
+    "level": "ERROR",
+    "message": {
+        "exception": "UnboundLocalError",
+        "status_code": 500,
+        "detail": "cannot access local variable 'result' where it is not associated with a value"
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 62,
+    "func": "__aexit__",
+    "process": "SpawnProcess-2",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:36,116",
+    "level": "ERROR",
+    "message": {
+        "exception": "EmailAlreadyExistsException",
+        "status_code": 409,
+        "detail": "This email already exists."
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 40,
+    "func": "__aexit__",
+    "process": "SpawnProcess-3",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:44,492",
+    "level": "ERROR",
+    "message": {
+        "exception": "EmailAlreadyExistsException",
+        "status_code": 409,
+        "detail": "This email already exists."
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 40,
+    "func": "__aexit__",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:49,915",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/",
+        "http_version": "HTTP/1.1",
+        "http_status": "404"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:50,176",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/favicon.ico",
+        "http_version": "HTTP/1.1",
+        "http_status": "404"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:52,794",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/docs",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:53,019",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/swagger/docs/v1.0/users",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:53,628",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/docs",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:01:53,726",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "38298",
+        "http_method": "GET",
+        "http_path": "/swagger/docs/v1.0/users",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-26 20:02:05,405",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "39650",
+        "http_method": "POST",
+        "http_path": "/api/v1/auth/login",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:27,524",
+    "level": "ERROR",
+    "message": {
+        "exception": "EmailAlreadyExistsException",
+        "status_code": 409,
+        "detail": "This email already exists."
+    },
+    "name": "root",
+    "app": "users",
+    "module": "base",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/src/apps/common/unit_of_works/base.py",
+    "line": 40,
+    "func": "__aexit__",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:35,166",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "37228",
+        "http_method": "GET",
+        "http_path": "/",
+        "http_version": "HTTP/1.1",
+        "http_status": "404"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:35,302",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "37228",
+        "http_method": "GET",
+        "http_path": "/favicon.ico",
+        "http_version": "HTTP/1.1",
+        "http_status": "404"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:39,636",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "37228",
+        "http_method": "GET",
+        "http_path": "/docs/",
+        "http_version": "HTTP/1.1",
+        "http_status": "307"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:39,642",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "37228",
+        "http_method": "GET",
+        "http_path": "/docs",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:39,792",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "37228",
+        "http_method": "GET",
+        "http_path": "/swagger/docs/v1.0/users",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:58,872",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "58516",
+        "http_method": "GET",
+        "http_path": "/docs",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:37:59,020",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "58516",
+        "http_method": "GET",
+        "http_path": "/swagger/docs/v1.0/users",
+        "http_version": "HTTP/1.1",
+        "http_status": "200"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}
+{
+    "timestamp": "2025-01-27 00:38:44,433",
+    "level": "INFO",
+    "message": {
+        "client_ip": "127.0.0.1",
+        "client_port": "44216",
+        "http_method": "GET",
+        "http_path": "/api/v1/patient?page_number=1&page_size=30",
+        "http_version": "HTTP/1.1",
+        "http_status": "401"
+    },
+    "name": "uvicorn.access",
+    "app": "users",
+    "module": "httptools_impl",
+    "file": "/home/stella/All_Python/Utils/Test-Project-MadDevs/.venv/lib/python3.13/site-packages/uvicorn/protocols/http/httptools_impl.py",
+    "line": 476,
+    "func": "send",
+    "process": "SpawnProcess-1",
+    "thread": "MainThread"
+}

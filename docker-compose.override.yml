@@ -1,9 +1,9 @@
 services:
   # region --------------- APPS --------------
-  user1.api:
+  user.api:
     environment:
       # Redis connection configuration
-      PG_HOST: postgres1.db
+      PG_HOST: postgres.db
       PG_PORT: 5432
       PG_USER: ${PG_USER}
       PG_PASSWORD: ${PG_PASSWORD}
@@ -31,7 +31,7 @@ services:
       - "8001:80"
 
   # region --------------- DB ----------------
-  postgres1.db:
+  postgres.db:
     environment:
       - POSTGRES_PASSWORD=${PG_PASSWORD}
     ports:

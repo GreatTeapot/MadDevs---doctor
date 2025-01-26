@@ -7,13 +7,13 @@ services:
   # region --------------- APPS -------------
 
 
-  user1.api:
-     container_name: user1.api
+  user.api:
+     container_name: user.api
      build:
        context: ./src/apps
+       dockerfile: Dockerfile
      depends_on:
-       - postgres1.db
-     command: [ "sh", "-c", "alembic upgrade head && python3 main.py" ]
+       - postgres.db
      restart: unless-stopped
      env_file:
       - .env
@@ -25,9 +25,9 @@ services:
 
   # region --------------- DB ----------------
 
-  postgres1.db:
+  postgres.db:
     image: postgres:17.2-alpine
-    container_name: postgres1.db
+    container_name: postgres.db
     env_file:
       - .env
     volumes:
