@@ -8,7 +8,7 @@ from tests.unit.utils.test_utils import validate_response_data
 @pytest.mark.asyncio
 @pytest.mark.parametrize("case", create_patient_data)
 async def test_create_patient(ac: AsyncClient, case):
-    access_token = await get_access_token(ac, "doctor_user", "ValidPass123")
+    access_token = await get_access_token(ac, "doctor", "gmail12345")
     headers = {"Authorization": f"Bearer {access_token}"}
     response = await ac.post("/api/v1/patient/", json=case, headers=headers)
     validate_response_data(response, case["expected_status"])

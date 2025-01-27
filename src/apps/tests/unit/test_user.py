@@ -1,7 +1,8 @@
 import pytest
 from httpx import AsyncClient
 
-from tests.unit.data.user_data import register_data
+from tests.unit.data.user_data import register_data, profile_data
+from tests.unit.utils.auth_util import get_access_token
 from tests.unit.utils.test_utils import validate_response_data
 
 
@@ -10,4 +11,14 @@ from tests.unit.utils.test_utils import validate_response_data
 async def test_register_user(ac: AsyncClient, case):
     response = await ac.post("/api/v1/user/register", json=case)
     validate_response_data(response, case["expected_status"])
+
+
+@pytest.mark.asyncio
+async def test_user_profile(ac: AsyncClient):
+    access_token = await get_access_token(ac, "doctor", "gmail12345")
+    headers = {"Authorization": f"Bearer {access_token}"}
+    response = await ac.get("/api/v1/user/profile", headers=headers)
+    validate_response_data(response, 200)
+    assert response.json().get("email") == "test_user@example.com"
+
 

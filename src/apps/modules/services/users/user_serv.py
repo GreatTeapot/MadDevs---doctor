@@ -1,10 +1,6 @@
 from datetime import datetime
-from numbers import Integral
 from types import NoneType
 from typing import TypeAlias, Union
-
-from pydantic import EmailStr
-from sqlalchemy.exc import IntegrityError
 
 from common.enums.role import UserRoleEnum
 from common.schemas.filters.mixins import DataRangeBaseFilterSchema
@@ -15,6 +11,7 @@ from models.user import User
 from modules.exceptions.users.exception import UserNotFoundException
 from modules.schemas.users.user_schemas import RegisterSchema, CurrentUserSchema
 from modules.unit_of_works.users.user_uow import UserUOW
+from pydantic import EmailStr
 
 RegisterData: TypeAlias = dict[
     str, Union[bytes, str, datetime, bool, UserRoleEnum, NoneType, int]
@@ -91,7 +88,7 @@ class UserService(PaginatedPageService):
             role=UserRoleEnum.DOCTOR
         )
         try:
-            result = await cls.create(uow, schema)
+            result = await cls.creater(uow, schema)
             return bool(result)
         except:
             print(f"[WARNING] Integrity error while creating user: . Skipping creation.")

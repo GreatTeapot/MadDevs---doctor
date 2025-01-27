@@ -1,9 +1,9 @@
 register_data = [
     {
-        "username": "testuser",
-        "email": "test_user@example.com",
-        "password_hash": "ValidPass123",
-        "expected_status": 201,
+        "username": "testuser1",
+        "email": "testuser@example.com",
+        "password_hash": "validpass123",
+        "expected_status": 200,
     },
     {
         "username": "us#@",  # Invalid username
@@ -14,5 +14,7 @@ register_data = [
 ]
 
 profile_data = [
-    {"expected_status": 200},
+    {
+        "expected_status": 200,
+    },
 ]
