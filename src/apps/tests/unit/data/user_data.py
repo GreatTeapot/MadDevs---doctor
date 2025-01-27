@@ -1,9 +1,12 @@
+from common.enums.role import UserRoleEnum
+
 register_data = [
     {
-        "username": "testuser1",
-        "email": "testuser@example.com",
-        "password_hash": "validpass123",
+        "username": "testuser2",
+        "email": "test@gmail.com",
+        "password_hash": "pass12345",
         "expected_status": 200,
+        "role": UserRoleEnum.DOCTOR
     },
     {
         "username": "us#@",  # Invalid username

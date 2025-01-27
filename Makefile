@@ -24,4 +24,4 @@ migrate:
 	cd src/apps && alembic revision --autogenerate -m "Database creation"
 
 test:
-	PYTHONPATH=src/apps pytest -v
+	PYTHONPATH=src/apps pytest -v -s

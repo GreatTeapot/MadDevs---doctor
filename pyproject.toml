@@ -1,7 +1,7 @@
-[tool.pytest.ini_options]
-pythonpath = [
-  ".", "src",
-]
-asyncio_mode="auto"
-
-env_files = "src/apps/.env"
+#[tool.pytest.ini_options]
+#pythonpath = [
+#  ".", "src",
+#]
+#asyncio_mode="auto"
+#
+#env_files = ".src/apps/.env"

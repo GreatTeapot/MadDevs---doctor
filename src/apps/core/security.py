@@ -31,7 +31,7 @@ class Security:
         payload = {"sub": model_id, "type": "access"}
         access_token = cls.__create_token(
             payload=payload,
-            minutes=settings.auth.access_token_expire_minutes,
+            minutes=int(settings.auth.access_token_expire_minutes),
             now=now,
         )
         return access_token
@@ -42,7 +42,7 @@ class Security:
         payload = {"sub": model_id, "type": "refresh"}
         refresh_token = cls.__create_token(
             payload=payload,
-            minutes=settings.auth.refresh_token_expire_minutes,
+            minutes=int(settings.auth.refresh_token_expire_minutes),
             now=now,
         )
         return refresh_token

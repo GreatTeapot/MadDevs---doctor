@@ -15,7 +15,7 @@ async def test_register_user(ac: AsyncClient, case):
 
 @pytest.mark.asyncio
 async def test_user_profile(ac: AsyncClient):
-    access_token = await get_access_token(ac, "doctor", "gmail12345")
+    access_token = await get_access_token(ac, "testuser2", "pass12345")
     headers = {"Authorization": f"Bearer {access_token}"}
     response = await ac.get("/api/v1/user/profile", headers=headers)
     validate_response_data(response, 200)

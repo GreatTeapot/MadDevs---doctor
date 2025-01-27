@@ -88,7 +88,7 @@ class UserService(PaginatedPageService):
             role=UserRoleEnum.DOCTOR
         )
         try:
-            result = await cls.creater(uow, schema)
+            result = await cls.create(uow, schema)
             return bool(result)
         except:
             print(f"[WARNING] Integrity error while creating user: . Skipping creation.")

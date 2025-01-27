@@ -13,7 +13,7 @@ class CommonSettings(BaseSettings):
     """Common application settings."""
 
     model_config = SettingsConfigDict(
-        env_file=os.path.expanduser(".env"),
+        env_file=os.path.expanduser(".env", ),
         env_file_encoding="utf-8",
         extra="allow",
     )

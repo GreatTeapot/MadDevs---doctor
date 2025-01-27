@@ -1,7 +1,9 @@
 import asyncio
+import os
 
 import pytest
 import pytest_asyncio
+from dotenv import load_dotenv
 from httpx import AsyncClient, ASGITransport
 
 from common.models.base import Base
@@ -9,8 +11,8 @@ from core.config import settings
 from core.database import engine_async
 from main import app
 
+load_dotenv(dotenv_path=".env")
 
-@pytest.fixture(scope="session", autouse=True)
 def check_pytest_debug():
     pytest_debug = settings.db.pytest_debug
     if not pytest_debug:
@@ -21,7 +23,7 @@ def check_pytest_debug():
 Base.metadata.bind = engine_async
 
 
-@pytest.fixture(autouse=True, scope='session')
+@pytest_asyncio.fixture(autouse=True, scope='session')
 async def prepare_database():
     async with engine_async.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
@@ -36,3 +38,4 @@ async def prepare_database():
 async def ac() -> AsyncClient:
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as async_test_client:
         yield async_test_client
+
