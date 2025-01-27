@@ -1,5 +1,4 @@
 import asyncio
-import os
 from typing import AsyncGenerator
 
 import pytest
@@ -13,7 +12,7 @@ from core.config import settings
 from core.database import engine_async, async_session_maker
 from main import app
 
-load_dotenv(dotenv_path=".env")
+load_dotenv(dotenv_path=".env.local")
 
 def check_pytest_debug():
     pytest_debug = settings.db.pytest_debug
@@ -29,7 +28,7 @@ async def override_get_async_session() -> AsyncGenerator[AsyncSession, None]:
     async with async_session_maker() as session:
         yield session
 
-@pytest_asyncio.fixture(autouse=True, scope='session')
+@pytest.fixture(autouse=True, scope='session')
 async def prepare_database():
     async with engine_async.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
