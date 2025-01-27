@@ -12,8 +12,15 @@ from sqlalchemy import URL
 class CommonSettings(BaseSettings):
     """Common application settings."""
 
+    env_file: str = (
+        ".env"
+    )
+    env_local_file: str = (
+        ".env.local"
+    )
+
     model_config = SettingsConfigDict(
-        env_file=os.path.expanduser(".env", ),
+        env_file=env_local_file if env_local_file else env_file,
         env_file_encoding="utf-8",
         extra="allow",
     )
