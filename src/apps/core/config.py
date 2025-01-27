@@ -1,5 +1,4 @@
 
-import os
 from functools import lru_cache
 from pathlib import Path
 from typing import Optional, Self
@@ -44,9 +43,9 @@ class AuthSettings(CommonSettings):
         default="http://localhost:8000/api/v1/auth/login", alias="TOKEN_URL")
 
     private_key_path: Path = Field(
-        default="certs/jwt-private.pem", alias="PRIVATE_KEY_PATH"
+        default="src/apps/certs/jwt-private.pem", alias="PRIVATE_KEY_PATH"
     )
-    public_key_path: Path = Field(default="certs/jwt-public.pem", alias="PUBLIC_KEY_PATH")
+    public_key_path: Path = Field(default="src/apps/certs/jwt-public.pem", alias="PUBLIC_KEY_PATH")
     algorithm: str = Field(default="RS256", alias="ALGORITHM")
     access_token_expire_minutes: int = Field(
         default=60, alias="ACCESS_TOKEN_EXPIRE_MINUTES"

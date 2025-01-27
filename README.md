@@ -2,7 +2,7 @@
 
 ## Local Setup Instructions
 
-1. Set `.env` file using `.env.example` (for Docker) or `src/apps/.env.example` (for local setup).
+1.(IMPORTANT) Set `.env` file using `.env-example` (for Docker) or `src/apps/.env.local-example` (for local setup).
 
 ### Method 1: Using Virtual Environment
 
@@ -80,7 +80,9 @@
 
 ## Running Tests
 
-Run the test suite with the following command:
+Run the test suite with the following command
+(firstly set in src/apps/.env.local PYTEST_DEBUG=True:
+
 
 ```bash
 make test

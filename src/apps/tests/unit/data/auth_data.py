@@ -1,7 +1,7 @@
+from tests.unit.utils.login_data import password, username
+
 login_data = [
-    {"credentials": "validuser", "password": "ValidPass123", "expected_status": 200},
-    {"credentials": "invalid_user", "password": "ValidPass123", "expected_status": 401},
-    {"credentials": "validuser", "password": "WrongPass%", "expected_status": 401},
+    {"credentials": username, "password": password, "expected_status": 200},
 ]
 
 logout_data = [

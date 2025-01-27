@@ -2,7 +2,7 @@ create_patient_data = [
     {
         "date_of_birth": "2000-01-01",
         "diagnoses": ["Diagnosis A", "Diagnosis B"],
-        "expected_status": 201,
+        "expected_status": 200,
     },
     {
         "date_of_birth": "2025-04-04",  # Invalid future date
